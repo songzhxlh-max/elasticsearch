@@ -89,6 +89,8 @@ subprojects {
         }
       }
       repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
         maven {
           name = 'test'
           url = "${rootProject.buildDir}/local-test-repo"

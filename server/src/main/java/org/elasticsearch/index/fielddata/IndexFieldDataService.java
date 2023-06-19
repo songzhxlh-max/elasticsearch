@@ -118,6 +118,7 @@ public class IndexFieldDataService extends AbstractIndexComponent implements Clo
         IndexFieldDataCache cache;
         synchronized (this) {
             cache = fieldDataCaches.get(fieldName);
+            System.out.println("888888");
             if (cache == null) {
                 String cacheType = indexSettings.getValue(INDEX_FIELDDATA_CACHE_KEY);
                 if (FIELDDATA_CACHE_VALUE_NODE.equals(cacheType)) {

@@ -405,6 +405,7 @@ public class CommonAnalysisPlugin extends Plugin implements AnalysisPlugin, Scri
                 input -> new CommonGramsFilter(input, CharArraySet.EMPTY_SET)));
         filters.add(PreConfiguredTokenFilter.singleton("czech_stem", false, CzechStemFilter::new));
         filters.add(PreConfiguredTokenFilter.singleton("decimal_digit", true, DecimalDigitFilter::new));
+        System.out.println("99999991");
         filters.add(PreConfiguredTokenFilter.elasticsearchVersion("delimited_payload_filter", false, (input, version) -> {
             if (version.onOrAfter(Version.V_7_0_0)) {
                 throw new IllegalArgumentException(
@@ -417,6 +418,7 @@ public class CommonAnalysisPlugin extends Plugin implements AnalysisPlugin, Scri
                 DelimitedPayloadTokenFilterFactory.DEFAULT_DELIMITER,
                 DelimitedPayloadTokenFilterFactory.DEFAULT_ENCODER);
         }));
+        System.out.println("99999992");
         filters.add(PreConfiguredTokenFilter.singleton("delimited_payload", false, input ->
                 new DelimitedPayloadTokenFilter(input,
                         DelimitedPayloadTokenFilterFactory.DEFAULT_DELIMITER,

@@ -14,13 +14,15 @@
 #
 # Use a descriptive name for your cluster:
 #
-#cluster.name: my-application
+cluster.name: my-es
 #
 # ------------------------------------ Node ------------------------------------
 #
 # Use a descriptive name for the node:
 #
-#node.name: node-1
+node.name: node-1
+
+node.attr.tag: tag-1
 #
 # Add custom attributes to the node:
 #
@@ -30,11 +32,11 @@
 #
 # Path to directory where to store the data (separate multiple locations by comma):
 #
-${path.data}
+path.data: d:/es_test/elasticsearch-7.5.0/data
 #
 # Path to log files:
 #
-${path.logs}
+path.logs: d:/es_test/elasticsearch-7.5.0/logs
 #
 # ----------------------------------- Memory -----------------------------------
 #
@@ -56,7 +58,12 @@ ${path.logs}
 #
 # Set a custom port for HTTP:
 #
-#http.port: 9200
+http.port: 9200
+
+transport.tcp.port: 9300
+
+node.master: true
+node.data: true
 #
 # For more information, consult the network module documentation.
 #
@@ -65,11 +72,15 @@ ${path.logs}
 # Pass an initial list of hosts to perform discovery when this node is started:
 # The default list of hosts is ["127.0.0.1", "[::1]"]
 #
-#discovery.seed_hosts: ["host1", "host2"]
+discovery.seed_hosts: ["localhost:9300"]
 #
 # Bootstrap the cluster using an initial set of master-eligible nodes:
 #
-#cluster.initial_master_nodes: ["node-1", "node-2"]
+cluster.initial_master_nodes: ["node-3"]
+
+cluster.routing.allocation.same_shard.host: true
+
+cluster.routing.allocation.node_concurrent_recoveries: 10
 #
 # For more information, consult the discovery and cluster formation module documentation.
 #

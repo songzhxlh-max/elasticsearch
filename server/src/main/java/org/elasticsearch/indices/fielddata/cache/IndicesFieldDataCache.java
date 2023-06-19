@@ -197,7 +197,9 @@ public class IndicesFieldDataCache implements RemovalListener<IndicesFieldDataCa
                 }
             }
             // force eviction
-            cache.refresh();
+            System.out.println("cache clear...");
+            System.out.println("aaa");
+            // cache.refresh();
         }
 
         @Override
